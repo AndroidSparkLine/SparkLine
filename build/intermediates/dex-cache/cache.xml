@@ -2,60 +2,46 @@
 <items version="2" >
 
     <item
-        jar="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="99335a8b3468f95fa5e2603ece471007152ebd4b">
-        <dex dex="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_3726d45f60f42ae580d8e76b0962d722960a0f50/classes.dex" />
-    </item>
-    <item
-        jar="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/libs/internal_impl-23.3.0.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
-        <dex dex="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.3.0_cb6ac872ecbfb66cee4ea10aa565b185107e7088/classes.dex" />
-    </item>
-    <item
-        jar="/Users/xiaoguangmo/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
-        <dex dex="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.3.0_3da56a19234febebb0a499331ee660baf2ccf5c6/classes.dex" />
-    </item>
-    <item
-        jar="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
-        <dex dex="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.3.0_97adff9b96080833fa8cba1b9d7651a7b2238d89/classes.dex" />
-    </item>
-    <item
-        jar="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="7c893c180e7fc6092a64f57f3fd176bb41ce3d46">
-        <dex dex="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_afbc916f99a54c174e848e82151fcc8414cda0c5/classes.dex" />
-    </item>
-    <item
-        jar="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
-        <dex dex="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.3.0_0d5c8edcc4c9a08278aa77b228492f13b1c7f4ea/classes.dex" />
-    </item>
-    <item
-        jar="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.3.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
-        <dex dex="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.3.0_15bab05f9b898fbb9d7fc1b0a0f5c7605291b758/classes.dex" />
-    </item>
-    <item
-        jar="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/classes.jar"
-        jumboMode="true"
+        jar="/Users/Xiaoyu/Desktop/SCUCourses/SCU2016Spring/coen268JunSun/SparkLineProject/SparkLine/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/classes.jar"
+        jumboMode="false"
         revision="23.0.3"
         sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
-        <dex dex="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.3.0_1d95c782844812e952d2cd0fd0e6ec0d99103b63/classes.dex" />
+        <dex dex="/Users/Xiaoyu/Desktop/SCUCourses/SCU2016Spring/coen268JunSun/SparkLineProject/SparkLine/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.3.0_b4855c6e4d65b565940d9327300a0c59ef3b6322.jar" />
+    </item>
+    <item
+        jar="/Users/Xiaoyu/Desktop/SCUCourses/SCU2016Spring/coen268JunSun/SparkLineProject/SparkLine/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="/Users/Xiaoyu/Desktop/SCUCourses/SCU2016Spring/coen268JunSun/SparkLineProject/SparkLine/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.3.0_3053696577ba698187ebc89890d6e156443a731f.jar" />
+    </item>
+    <item
+        jar="/Users/Xiaoyu/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
+        <dex dex="/Users/Xiaoyu/Desktop/SCUCourses/SCU2016Spring/coen268JunSun/SparkLineProject/SparkLine/app/build/intermediates/pre-dexed/debug/support-annotations-23.3.0_12ccd0b2cb9f5cd86c5c04f0056701cdecad8869.jar" />
+    </item>
+    <item
+        jar="/Users/Xiaoyu/Desktop/SCUCourses/SCU2016Spring/coen268JunSun/SparkLineProject/SparkLine/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="/Users/Xiaoyu/Desktop/SCUCourses/SCU2016Spring/coen268JunSun/SparkLineProject/SparkLine/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.3.0_7e7c0edbc1d79b017ce8cfcdbc75cba7627c8bbb.jar" />
+    </item>
+    <item
+        jar="/Users/Xiaoyu/Desktop/SCUCourses/SCU2016Spring/coen268JunSun/SparkLineProject/SparkLine/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/libs/internal_impl-23.3.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="/Users/Xiaoyu/Desktop/SCUCourses/SCU2016Spring/coen268JunSun/SparkLineProject/SparkLine/app/build/intermediates/pre-dexed/debug/internal_impl-23.3.0_e3b9857a8a8ae44c9bb80564bd7f7d3d8f55699d.jar" />
+    </item>
+    <item
+        jar="/Users/Xiaoyu/Desktop/SCUCourses/SCU2016Spring/coen268JunSun/SparkLineProject/SparkLine/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="/Users/Xiaoyu/Desktop/SCUCourses/SCU2016Spring/coen268JunSun/SparkLineProject/SparkLine/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.3.0_25e48cc52c122187ce98fe55ef770de989e1bffe.jar" />
     </item>
 
 </items>
