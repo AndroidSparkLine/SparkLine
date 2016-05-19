@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/imageIconLeft" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30dp"
+        android:text="Test message"
+        android:layout_toRightOf="@id/imageIconLeft"
+        android:id="@+id/messageTxt"
+        android:layout_gravity="center_horizontal" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30dp"
+        android:id="@+id/imageIconRight"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/messageTxt"
+
+        android:layout_gravity="right" />
+</RelativeLayout>
