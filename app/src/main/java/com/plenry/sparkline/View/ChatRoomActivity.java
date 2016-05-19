@@ -23,8 +23,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chatroom_activity);
         messages = new ArrayList<>();
-        String url1 = "http://java.sogeti.nl/JavaBlog/wp-content/uploads" +
-                "/2009/04/android_icon_256.png";
+        String url1 = "http://cat-bounce.com/cb.png";
         User user1 = new User("John",url1, "red");
         Message message1 = new Message("This is a test", "15:00pm", user1);
         messages.add(message1);

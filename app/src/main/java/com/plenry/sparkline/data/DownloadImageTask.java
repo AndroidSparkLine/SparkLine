@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import java.io.InputStream;
+import java.net.URL;
 
 /**
  * Created by Xiaoyu on 5/17/16.
@@ -20,19 +21,21 @@ public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
     }
 
     protected Bitmap doInBackground(String... urls) {
-        String urldisplay = urls[0];
-        Bitmap mIcon11 = null;
+
+        Bitmap bitmap = null;
         try {
-            InputStream in = new java.net.URL(urldisplay).openStream();
-            mIcon11 = BitmapFactory.decodeStream(in);
+            bitmap = BitmapFactory.decodeStream((InputStream)new URL(urls[0]).getContent());
+
         } catch (Exception e) {
             Log.e("Error", e.getMessage());
             e.printStackTrace();
         }
-        return mIcon11;
+        return bitmap;
     }
-
     protected void onPostExecute(Bitmap result) {
-        bmImage.setImageBitmap(result);
+        if (result != null) {
+            bmImage.setImageBitmap(result);
+        }
+
     }
 }

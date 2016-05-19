@@ -29,18 +29,19 @@ public class ChatAdapter extends ArrayAdapter<Message> {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService
                 (Context.LAYOUT_INFLATER_SERVICE);
         View row = convertView;
-        if (convertView == null) {cd
+        if (convertView == null) {
             // This is an expensive operation! Avoid and reuse as much as possible.
             row = inflater.inflate(R.layout.message_layout, parent, false);
         }
-        new DownloadImageTask((ImageView) row.findViewById(R.id.imageIconLeft))
+
+        ImageView leftImage = (ImageView)row.findViewById(R.id.imageIconLeft);
+
+        new DownloadImageTask(leftImage)
                 .execute(messages.get(position).getUser().getPhoto());
-        //ImageView leftImage = (ImageView)row.findViewById(R.id.imageIconLeft);
+        //
         //leftImage.setImageResource();
 
         TextView messageView = (TextView) row.findViewById(R.id.messageTxt);
-        messageView.setText(messages.get(position).getContent());
-
         messageView.setText(messages.get(position).getContent());
         ImageView rightImage = (ImageView) row.findViewById(R.id.imageIconRight);
         new DownloadImageTask((ImageView) row.findViewById(R.id.imageIconRight))
@@ -48,31 +49,4 @@ public class ChatAdapter extends ArrayAdapter<Message> {
 
         return row;
     }
-//
-//    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-//        ImageView bmImage;
-//
-//        public DownloadImageTask(ImageView bmImage) {
-//            this.bmImage = bmImage;
-//        }
-//
-//        protected Bitmap doInBackground(String... urls) {
-//            String urldisplay = urls[0];
-//            Bitmap mIcon11 = null;
-//            try {
-//                InputStream in = new java.net.URL(urldisplay).openStream();
-//                mIcon11 = BitmapFactory.decodeStream(in);
-//            } catch (Exception e) {
-//                Log.e("Error", e.getMessage());
-//                e.printStackTrace();
-//            }
-//            return mIcon11;
-//        }
-//
-//        protected void onPostExecute(Bitmap result) {
-//            bmImage.setImageBitmap(result);
-//        }
-//    }
-
-
 }
