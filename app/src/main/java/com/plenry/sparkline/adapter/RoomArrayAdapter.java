@@ -1,4 +1,4 @@
-package com.plenry.sparkline.View;
+package com.plenry.sparkline.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -16,11 +16,13 @@ import java.util.List;
  * Created by Xiaoyu on 5/16/16.
  */
 public class RoomArrayAdapter extends ArrayAdapter<Room> {
-    private final List<Room> rooms;
-    public  RoomArrayAdapter(Context context, int resource, List<Room> rooms) {
+    private List<Room> rooms;
+
+    public RoomArrayAdapter(Context context, int resource, List<Room> rooms) {
         super(context, resource, rooms);
         this.rooms = rooms;
     }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService

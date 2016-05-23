@@ -6,7 +6,7 @@ import android.provider.Settings;
  * Created by Xiaoyu on 5/17/16.
  */
 public class Controller {
-    private String getDeviceToken() {
+    public String getDeviceToken() {
         return Settings.Secure.ANDROID_ID;
     }
 

@@ -1,9 +1,11 @@
 package com.plenry.sparkline.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by Xiaoyu on 5/17/16.
  */
-public class User {
+public class User implements Serializable {
     private String name;
     private String photo;
     private String color;

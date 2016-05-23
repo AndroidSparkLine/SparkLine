@@ -5,8 +5,8 @@
 
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:id="@+id/imageIconLeft" />
 
@@ -20,8 +20,8 @@
         android:layout_gravity="center_horizontal" />
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:paddingLeft="30dp"
         android:id="@+id/imageIconRight"
         android:layout_alignParentRight="true"

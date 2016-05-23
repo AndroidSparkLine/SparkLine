@@ -33,8 +33,9 @@ public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         return bitmap;
     }
     protected void onPostExecute(Bitmap result) {
+        Bitmap cornered_image = ImageHelper.getRoundedCornerBitmap(result, 100);
         if (result != null) {
-            bmImage.setImageBitmap(result);
+            bmImage.setImageBitmap(cornered_image);
         }
 
     }
