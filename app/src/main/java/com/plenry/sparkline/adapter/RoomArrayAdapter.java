@@ -27,15 +27,14 @@ public class RoomArrayAdapter extends ArrayAdapter<Room> {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService
                 (Context.LAYOUT_INFLATER_SERVICE);
-        View row = convertView;
         if (convertView == null) {
             // This is an expensive operation! Avoid and reuse as much as possible.
-            row = inflater.inflate(R.layout.custom_row, parent, false);
+            convertView = inflater.inflate(R.layout.custom_row, parent, false);
         }
 
-        TextView textView = (TextView) row.findViewById(R.id.label);
+        TextView textView = (TextView) convertView.findViewById(R.id.label);
         textView.setText(rooms.get(position).getTopic());
-        return row;
+        return convertView;
     }
 
 }
