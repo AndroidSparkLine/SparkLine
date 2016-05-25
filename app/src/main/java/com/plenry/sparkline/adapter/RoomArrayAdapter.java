@@ -17,6 +17,7 @@ import java.util.List;
  */
 public class RoomArrayAdapter extends ArrayAdapter<Room> {
     private List<Room> rooms;
+    private TextView textView;
 
     public RoomArrayAdapter(Context context, int resource, List<Room> rooms) {
         super(context, resource, rooms);
@@ -25,14 +26,11 @@ public class RoomArrayAdapter extends ArrayAdapter<Room> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService
-                (Context.LAYOUT_INFLATER_SERVICE);
         if (convertView == null) {
-            // This is an expensive operation! Avoid and reuse as much as possible.
+            LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.custom_row, parent, false);
+            textView = (TextView) convertView.findViewById(R.id.label);
         }
-
-        TextView textView = (TextView) convertView.findViewById(R.id.label);
         textView.setText(rooms.get(position).getTopic());
         return convertView;
     }

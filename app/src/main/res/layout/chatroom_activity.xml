@@ -68,7 +68,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/rl_layout"
         android:layout_alignParentEnd="true"
+        android:transcriptMode="normal"
         android:id="@+id/chatroom_listView"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"
+        android:layout_above="@+id/btn_bottom" />
 </RelativeLayout>
