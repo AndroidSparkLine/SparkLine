@@ -56,6 +56,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         autoRefresh();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        autoRefresh();
+    }
+
     public void init() {
         setContentView(R.layout.activity_main);
         avatarImage = (ImageView) findViewById(R.id.avatarImageView);
@@ -227,7 +233,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void autoRefresh() {
         timer = new Timer();
         timer.schedule(new TimerTask() {
-
             @Override
             public void run() {
                 MainActivity.this.runOnUiThread(new Runnable() {
