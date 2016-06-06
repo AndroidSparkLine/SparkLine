@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="300dp"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/border">
 
     <TextView
         android:layout_width="wrap_content"
@@ -10,7 +11,14 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Create a new ChatRoom"
         android:id="@+id/add_chatroom_tv"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -18,12 +26,44 @@
         android:inputType="textPersonName"
         android:ems="15"
         android:id="@+id/enter_chatroom_name"
-        android:hint="new chatroom name?" />
+        android:hint="Chatroom name"
+        android:layout_alignParentStart="false"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/add_chatroom_tv"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:textAlignment="center" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create password?"
+        android:id="@+id/checkBox"
+        android:layout_alignParentStart="false"
+        android:layout_alignLeft="@+id/enter_chatroom_name"
+        android:layout_below="@+id/enter_chatroom_name" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_below="@+id/enter_chatroom_name"
+        android:layout_toEndOf="@+id/checkBox"
+        android:ems="15"
+        android:textAlignment="center"
+        android:layout_alignRight="@+id/enter_chatroom_name"
+        android:inputType="textPersonName" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
         android:id="@+id/save_chatroom_btn"
-        android:layout_gravity="center_horizontal" />
-</LinearLayout>
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp"
+        android:textColor="#ffffff"
+        android:backgroundTint="#4a90e2" />
+</RelativeLayout>

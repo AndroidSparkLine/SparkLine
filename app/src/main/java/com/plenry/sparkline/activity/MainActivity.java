@@ -3,12 +3,14 @@ package com.plenry.sparkline.activity;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,15 +19,18 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jakewharton.disklrucache.DiskLruCache;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.plenry.sparkline.R;
+import com.plenry.sparkline.SearchBar;
 import com.plenry.sparkline.adapter.RoomArrayAdapter;
 import com.plenry.sparkline.bean.Room;
 import com.plenry.sparkline.bean.User;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
@@ -34,19 +39,24 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.loopj.android.http.*;
-import com.plenry.sparkline.data.DownloadImageTask;
+import com.plenry.sparkline.data.ImageHelper;
 
 import org.json.*;
 
 import cz.msebera.android.httpclient.Header;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private List<Room> rooms;
+    private List<Room> filtered;
     private ImageView avatarImage;
     private TextView userName;
     private ListView lv;
     private User user;
     private Timer timer;
-    private DiskLruCache cache;
+    private ImageLoader imageLoader = ImageLoader.getInstance();
+    private DisplayImageOptions options;
+    private SearchBar searchBar;
+    private EditText searchEdit;
+    private RoomArrayAdapter roomArrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +64,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         init();
         userLogin();
         autoRefresh();
+        searchEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                performFilter();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
     }
 
     @Override
@@ -62,12 +84,38 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         autoRefresh();
     }
 
+    public void searchBtn(View v) {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+    }
     public void init() {
         setContentView(R.layout.activity_main);
         avatarImage = (ImageView) findViewById(R.id.avatarImageView);
         userName = (TextView) findViewById(R.id.usernameTv);
         lv = (ListView) findViewById(R.id.listView);
+        searchEdit = (EditText) findViewById(R.id.searchEdit);
         lv.setOnItemClickListener(this);
+        searchBar = (SearchBar) findViewById(R.id.searchBar);
+        searchBar.bindWithListview(lv, SearchBar.BOTTOM);
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this).build();
+        imageLoader.init(config);
+        options = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true).build();
+    }
+
+    public void performFilter() {
+        String str = searchEdit.getText().toString();
+        if (str.equals("")) {
+            filtered = rooms;
+        } else {
+            filtered = new LinkedList<>();
+            for (Room room : rooms) {
+                if (room.getTopic().toLowerCase().contains(str.toLowerCase())) {
+                    filtered.add(room);
+                }
+            }
+        }
+        roomArrayAdapter = new RoomArrayAdapter(this, R.layout.custom_row, filtered);
+        lv.setAdapter(roomArrayAdapter);
     }
 
     public void userLogin() {
@@ -79,7 +127,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 try {
                     user = new User(response.getString("name"), response.getString("photo"), response.getString("color"));
                     userName.setText(user.getName());
-                    new DownloadImageTask(avatarImage).execute(user.getPhoto());
+                    imageLoader.loadImage(user.getPhoto(), options, new SimpleImageLoadingListener() {
+                        @Override
+                        public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                            avatarImage.setImageBitmap(ImageHelper.getRoundedCornerBitmap(loadedImage, 100));
+                        }
+                    });
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -108,7 +161,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(MainActivity.this, ChatRoomActivity.class);
-        intent.putExtra("room", rooms.get(position));
+        intent.putExtra("room", filtered.get(position));
         intent.putExtra("user", user);
         timer.cancel();
         startActivity(intent);
@@ -140,7 +193,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void refreshList(List<Room> newRooms) {
         if (rooms != null && newRooms.size() != 0 && rooms.size() == newRooms.size() && rooms.get(rooms.size() - 1).getTopic().equals(newRooms.get(newRooms.size() - 1).getTopic())) return;
         rooms = newRooms;
-        lv.setAdapter(new RoomArrayAdapter(this, R.layout.custom_row, newRooms));
+        performFilter();
     }
 
     public void changeAvatarFunc(View v){
@@ -152,7 +205,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 try {
                     user = new User(response.getString("name"), response.getString("photo"), response.getString("color"));
                     userName.setText(user.getName());
-                    new DownloadImageTask(avatarImage).execute(user.getPhoto());
+                    imageLoader.loadImage(user.getPhoto(), options, new SimpleImageLoadingListener() {
+                        @Override
+                        public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                            avatarImage.setImageBitmap(ImageHelper.getRoundedCornerBitmap(loadedImage, 100));
+                        }
+                    });
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -175,14 +233,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void addChatRoomFunc(View v){
-        //pop out a dialog to add a chatRoom, this chatRoom will be added to the chatRoom database
         final Dialog addRoom_Dialog = new Dialog(MainActivity.this);
         addRoom_Dialog.setTitle("Create a new chat room:");
-        // inflate custom layout
         addRoom_Dialog.setContentView(R.layout.add_chatroom_dialog);
         final EditText roomName = (EditText)addRoom_Dialog.findViewById(R.id.enter_chatroom_name);
-
-
         ((Button) addRoom_Dialog.findViewById(R.id.save_chatroom_btn))
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -195,6 +249,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         }
                         for (Room r : rooms) {
                             if (r.getTopic().equals(roomName_added)) {
+                                Toast.makeText(getApplicationContext(), "Topic already exists!", Toast.LENGTH_LONG).show();
                                 addRoom_Dialog.dismiss();
                                 return;
                             }
@@ -247,11 +302,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public boolean checkTime(String time) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssZ");
         Date dateToCompare = sdf.parse(time);
-
         Calendar c = Calendar.getInstance();
         c.add(Calendar.DATE, -1);
         Date oneDayAgo = new Date(c.getTimeInMillis());
-
         return dateToCompare.after(oneDayAgo);
     }
 

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import com.plenry.sparkline.R;
@@ -15,7 +16,7 @@ import java.util.List;
 /**
  * Created by Xiaoyu on 5/16/16.
  */
-public class RoomArrayAdapter extends ArrayAdapter<Room> {
+public class RoomArrayAdapter extends ArrayAdapter<Room> implements Filterable{
     private List<Room> rooms;
     private TextView textView;
 

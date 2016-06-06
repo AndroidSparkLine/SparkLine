@@ -66,7 +66,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         topic_name_tv.setText(room.getTopic());
         user = (User) getIntent().getSerializableExtra("user");
         chatListView.setTranscriptMode(ListView.TRANSCRIPT_MODE_NORMAL);
-//        chatListView.setStackFromBottom(true);
+        chatListView.setStackFromBottom(true);
     }
 
     public void refreshData() {

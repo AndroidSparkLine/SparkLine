@@ -2,15 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="300dp"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/border">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Pick a New Name"
+        android:text="Change Nickname"
         android:id="@+id/name_change_tv"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="50dp"
+        android:textStyle="bold" />
 
     <EditText
         android:layout_width="match_parent"
@@ -18,12 +21,15 @@
         android:inputType="textPersonName"
         android:ems="15"
         android:id="@+id/enter_new_name"
-        android:hint="Your new Name?" />
+        android:textAlignment="center"
+        android:layout_margin="20dp"
+        android:hint="Enter new nickname" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
         android:id="@+id/save_name_btn"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="30dp" />
 </LinearLayout>

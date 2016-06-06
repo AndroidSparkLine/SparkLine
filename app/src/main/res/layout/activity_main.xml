@@ -48,6 +48,29 @@
             android:layout_margin="5dp">
         </ImageView>
 
+                <com.plenry.sparkline.SearchBar
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/searchBar"
+                    android:layout_alignTop="@+id/avatarImageView"
+                    android:layout_alignStart="@+id/avatarImageView"
+                    android:background="#FE6542">
+                        <EditText
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/searchEdit"
+                            android:layout_alignTop="@+id/searchBar"
+                            android:layout_alignStart="@+id/searchBar"
+                            />
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignEnd="@+id/searchEdit"
+                            android:onClick="searchBtn"
+                            android:text="Search"
+                            />
+                </com.plenry.sparkline.SearchBar>
+
         </RelativeLayout>
 
         <ListView

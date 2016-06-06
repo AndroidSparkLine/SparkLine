@@ -33,7 +33,7 @@
         jar="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.3"
-        sha1="b3c3f303de200e6fc60c3a23b2224f7bbdfee8cf">
+        sha1="fb2aa78e0c14259017e6bb4a84f830f9356876c5">
         <dex dex="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_3726d45f60f42ae580d8e76b0962d722960a0f50/classes.dex" />
     </item>
     <item
@@ -42,6 +42,13 @@
         revision="23.0.3"
         sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
         <dex dex="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_3649d6db23ea1f488402c9e0d25b804f7729eef2/classes.dex" />
+    </item>
+    <item
+        jar="/Users/xiaoguangmo/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.5/442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375/universal-image-loader-1.9.5.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375">
+        <dex dex="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/transforms/dex/debug/folders/1000/10/universal-image-loader-1.9.5_5febfaab6036a88d0f71e71f8f8b4c00cf62a9b5/classes.dex" />
     </item>
     <item
         jar="/Users/xiaoguangmo/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.3.6/526a9f794eab830eae4f23a62c572878b3f491ab/httpclient-4.3.6.jar"
@@ -54,7 +61,7 @@
         jar="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="23.0.3"
-        sha1="fb36abd2f5292b56a9f2924dbbf9b279bc541864">
+        sha1="05d1a299cb7094e634ad6f2adb922030a2eea2dc">
         <dex dex="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_afbc916f99a54c174e848e82151fcc8414cda0c5/classes.dex" />
     </item>
     <item
@@ -70,13 +77,6 @@
         revision="23.0.3"
         sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
         <dex dex="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_e9f6e4cbb7390d67cf02de1fe655ca6cf7ff21b7/classes.dex" />
-    </item>
-    <item
-        jar="/Users/xiaoguangmo/.gradle/caches/modules-2/files-2.1/com.jakewharton/disklrucache/2.0.2/93b399470e72c0bc8cb52379943b63c9aa586cd8/disklrucache-2.0.2.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="93b399470e72c0bc8cb52379943b63c9aa586cd8">
-        <dex dex="/Users/xiaoguangmo/AndroidStudioProjects/SparkLine/app/build/intermediates/transforms/dex/debug/folders/1000/10/disklrucache-2.0.2_57b639e81b29f40ae95f774e51c5371b0cd02229/classes.dex" />
     </item>
 
 </items>
